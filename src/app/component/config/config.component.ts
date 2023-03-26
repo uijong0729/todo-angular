@@ -1,4 +1,4 @@
-import { Config, ConfigService } from './../../service/config-service.service';
+import { Config, ConfigService } from '../../service/config.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 export class ConfigComponent {
 
   contents: Config;
+  todo: string
 
   constructor(private configService :ConfigService) {
 
@@ -18,4 +19,9 @@ export class ConfigComponent {
   showConfig() {
     this.configService.getConfig().subscribe(results => this.contents = results)
   }
+
+  getTodo() {
+    this.configService.getTodo().subscribe(results => this.todo = results)
+  }
+
 }
