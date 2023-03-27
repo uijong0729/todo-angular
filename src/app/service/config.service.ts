@@ -15,7 +15,6 @@ export interface Config {
 export class ConfigService {
 
   configUrl = 'assets/config.json';
-  todoUrl = 'https://jsonplaceholder.typicode.com/todos/1';
 
   constructor(private http: HttpClient) {
 
@@ -25,8 +24,5 @@ export class ConfigService {
     return this.http.get<Config>(this.configUrl);
   }
 
-  getTodo() {
-    return this.http.get<string>(this.configUrl);
-  }
 }
 
