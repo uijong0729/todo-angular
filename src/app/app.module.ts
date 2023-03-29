@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material/material.module'
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigComponent } from './component/config/config.component';
+import { HomeComponent } from './component/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ConfigComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
