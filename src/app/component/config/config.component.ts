@@ -6,23 +6,18 @@ import { Todo, TodoService } from 'src/app/service/todo.service';
   selector: 'app-config',
   templateUrl: './config.component.html',
   styleUrls: ['./config.component.scss'],
-  providers: [ ConfigService, TodoService ]
+  providers: [ ConfigService ]
 })
 export class ConfigComponent {
 
   contents: Config;
-  todo: Todo;
 
-  constructor(private configService :ConfigService, private todoService :TodoService) {
+  constructor(private configService :ConfigService) {
 
   }
 
   showConfig() {
     this.configService.getConfig().subscribe(results => this.contents = results)
-  }
-
-  showTodo() {
-    this.todoService.getTodo().subscribe(results => this.todo = results)
   }
 
 }

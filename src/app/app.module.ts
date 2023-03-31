@@ -8,6 +8,7 @@ import { MaterialModule } from './material/material.module'
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigComponent } from './component/config/config.component';
 import { HomeComponent } from './component/home/home.component';
+import { TodoComponent } from './component/todo/todo.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { HomeComponent } from './component/home/home.component';
     AppComponent,
     ConfigComponent,
     HomeComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,
