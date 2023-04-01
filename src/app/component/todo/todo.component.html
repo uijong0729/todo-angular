@@ -3,3 +3,12 @@
 <p>{{todo.title}}</p>
 <p>{{todo.userId}}</p>
 <p>{{todo.completed}}</p>
+
+<button (click)="showTodoList()">show todo list</button>
+<div *ngFor="let item of todoList">
+  <p>{{item.id}}</p>
+  <p>{{item.title}}</p>
+  <p>{{item.userId}}</p>
+  <p>{{item.completed}}</p>
+</div>
+

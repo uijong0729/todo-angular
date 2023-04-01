@@ -10,6 +10,7 @@ import { Todo, TodoService } from 'src/app/service/todo.service';
 export class TodoComponent {
 
   todo: Todo;
+  todoList: Todo[];
 
   constructor(private todoService :TodoService) {
 
@@ -17,5 +18,9 @@ export class TodoComponent {
 
   showTodo() {
     this.todoService.getTodo().subscribe(results => this.todo = results)
+  }
+
+  showTodoList() {
+    this.todoService.getTodoList().subscribe(results => this.todoList = results)
   }
 }
