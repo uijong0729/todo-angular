@@ -1,13 +1,21 @@
-<p>home works!</p>
-<nav>
-  <div>
-    <button mat-raised-button color="primary" [routerLink]="'config'">go config</button>
-  </div>
-  <div>
-    <button mat-raised-button color="primary" [routerLink]="'todo'">go todo page</button>
-  </div>
+<!--
+    color="primary"
+    color="accent"
+    color="warn"
+ -->
+<p>
+  <mat-toolbar color="warn">Todo page</mat-toolbar>
+</p>
+<nav class="navigation-bar">
+    <button mat-raised-button color="primary" [routerLink]="'config'">config</button>
+    <button mat-raised-button color="primary" [routerLink]="'todo'">todo</button>
+    <button mat-raised-button color="primary" [routerLink]="''">dummy</button>
+    <button mat-raised-button color="primary" [routerLink]="''">dummy</button>
+    <button mat-raised-button color="primary" [routerLink]="''">dummy</button>
+    <button mat-raised-button color="primary" [routerLink]="''">dummy</button>
+    <button mat-raised-button color="primary" [routerLink]="''">dummy</button>
 </nav>
 
 <div>
-
+  <router-outlet></router-outlet>
 </div>

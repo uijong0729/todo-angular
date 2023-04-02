@@ -1,0 +1,7 @@
+// https://www.w3schools.com/css/css_grid.asp
+.navigation-bar {
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}

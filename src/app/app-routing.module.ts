@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'todo', component: TodoComponent
   },
   {
-    path: '', component: HomeComponent
+    path: '', component: TodoComponent
   }
 ];
 
