@@ -6,9 +6,16 @@
 
 <button (click)="showTodoList()">show todo list</button>
 <div *ngFor="let item of todoList">
-  <p>{{item.id}}</p>
-  <p>{{item.title}}</p>
-  <p>{{item.userId}}</p>
-  <p>{{item.completed}}</p>
+  <mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>{{item.title}}</mat-card-title>
+      <mat-card-subtitle>{{item.userId}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{item.completed}}</p>
+    </mat-card-content>
+  </mat-card>
 </div>
+
 
