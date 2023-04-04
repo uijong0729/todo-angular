@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TodoComponent } from './component/todo/todo.component';
 import { AppComponent } from './app.component';
+import { UserComponent } from './component/user/user.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,9 @@ const routes: Routes = [
   },
   {
     path: 'todo', component: TodoComponent
+  },
+  {
+    path: 'user', component: UserComponent
   },
   {
     path: '', component: TodoComponent

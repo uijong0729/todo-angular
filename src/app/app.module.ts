@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfigComponent } from './component/config/config.component';
 import { HomeComponent } from './component/home/home.component';
 import { TodoComponent } from './component/todo/todo.component';
+import { UserComponent } from './component/user/user.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { TodoComponent } from './component/todo/todo.component';
     ConfigComponent,
     HomeComponent,
     TodoComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
