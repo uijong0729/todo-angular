@@ -2,11 +2,11 @@
 <mat-card class="card">
   <mat-card-header>
     <div mat-card-avatar></div>
-    <mat-card-title>{{todo.title}}</mat-card-title>
-    <mat-card-subtitle>{{todo.userId}}</mat-card-subtitle>
+    <mat-card-title>{{todo?.title}}</mat-card-title>
+    <mat-card-subtitle>{{todo?.userId}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-      <p>{{todo.completed}}</p>
+      <p>{{todo?.completed}}</p>
   </mat-card-content>
 </mat-card>
 
@@ -15,11 +15,11 @@
   <mat-card class="card">
     <mat-card-header>
       <div mat-card-avatar></div>
-      <mat-card-title>{{item.title}}</mat-card-title>
-      <mat-card-subtitle>{{item.userId}}</mat-card-subtitle>
+      <mat-card-title>{{item?.title}}</mat-card-title>
+      <mat-card-subtitle>{{item?.userId}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-        <p>{{item.completed}}</p>
+        <p>{{item?.completed}}</p>
     </mat-card-content>
   </mat-card>
 </div>

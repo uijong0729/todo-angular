@@ -10,6 +10,8 @@ import { ConfigComponent } from './component/config/config.component';
 import { HomeComponent } from './component/home/home.component';
 import { TodoComponent } from './component/todo/todo.component';
 import { UserComponent } from './component/user/user.component';
+import { LoginComponent } from './component/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { UserComponent } from './component/user/user.component';
     HomeComponent,
     TodoComponent,
     UserComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { UserComponent } from './component/user/user.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
