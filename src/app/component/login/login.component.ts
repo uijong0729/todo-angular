@@ -24,7 +24,7 @@ export class LoginComponent {
   login() {
     console.log(this.loginForm.value)
     this.session.setInfo(this.loginForm.value.id);
-    this.rout.navigateByUrl('');
+    this.rout.navigateByUrl('todo');
   }
 
 }
