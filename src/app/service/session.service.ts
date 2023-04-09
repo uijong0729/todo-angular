@@ -14,4 +14,8 @@ export class SessionService {
   getInfo() : string{
     return localStorage.getItem('id');
   }
+
+  clear() {
+    localStorage.clear();
+  }
 }

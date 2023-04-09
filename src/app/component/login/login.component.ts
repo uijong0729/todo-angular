@@ -17,7 +17,7 @@ export class LoginComponent {
     pw: ''
   })
 
-  constructor(private session : SessionService, private rout: Router, private formBuilder: FormBuilder) {
+  constructor(public session : SessionService, private rout: Router, private formBuilder: FormBuilder) {
 
   }
 
@@ -25,6 +25,10 @@ export class LoginComponent {
     console.log(this.loginForm.value)
     this.session.setInfo(this.loginForm.value.id);
     this.rout.navigateByUrl('todo');
+  }
+
+  logout() {
+    this.session.clear();
   }
 
 }

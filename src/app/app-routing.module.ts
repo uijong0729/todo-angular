@@ -10,9 +10,11 @@ import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
+    // 미로그인
     path: '', component: LoginComponent
   },
   {
+    // canActivate로 로그인 체크
     path: '', canActivate: [AuthGuard], children: [
       {
         path: 'config', component: ConfigComponent

@@ -11,6 +11,7 @@ export class AuthGuard  {
   id:string
 
   constructor(private session : SessionService, private router: Router) { }
+
   canActivate():
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
