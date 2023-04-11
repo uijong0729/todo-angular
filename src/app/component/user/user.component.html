@@ -3,3 +3,16 @@
   {{user?.name}}
 </p>
 
+<button (click)="showUsers()">show user list</button>
+<div *ngFor="let item of users">
+  <mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar></div>
+      <mat-card-title>{{item?.name}}</mat-card-title>
+      <mat-card-subtitle>{{item?.phone}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{item?.website}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

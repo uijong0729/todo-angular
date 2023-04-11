@@ -10,6 +10,7 @@ import { Component } from '@angular/core';
 export class UserComponent {
 
   user :User;
+  users :User[];
 
   constructor(private userService :UserService) {
 
@@ -17,6 +18,9 @@ export class UserComponent {
 
   // users
   // https://jsonplaceholder.typicode.com/users
+  showUsers() {
+    this.userService.getUsers().subscribe(results => this.users = results)
+  }
 
   // user
   // https://jsonplaceholder.typicode.com/users/1

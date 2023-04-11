@@ -32,10 +32,15 @@ export interface User {
 export class UserService {
 
   userUrl = "https://jsonplaceholder.typicode.com/users/1"
+  usersUrl = "https://jsonplaceholder.typicode.com/users/"
 
   constructor(private http: HttpClient) { }
 
   getUser() :Observable<User> {
     return this.http.get<User>(this.userUrl);
+  }
+
+  getUsers() :Observable<User[]> {
+    return this.http.get<User[]>(this.usersUrl);
   }
 }
