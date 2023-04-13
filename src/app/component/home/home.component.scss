@@ -5,3 +5,12 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 20px;
 }
+
+.noWrapBox {
+  display: block;
+}
+
+.noWrapBox > * {
+  width: 100%;
+  height: 100%;
+}

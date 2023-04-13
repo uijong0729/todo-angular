@@ -10,7 +10,12 @@
     <button mat-raised-button color="primary" [routerLink]="'config'">config</button>
     <button mat-raised-button color="primary" [routerLink]="'todo'">todo</button>
     <button mat-raised-button color="primary" [routerLink]="'user'">user</button>
-    <button mat-raised-button color="primary" [routerLink]="'login'">login</button>
+    <div class="noWrapBox" *ngIf="this.session.getInfo() == null">
+      <button mat-raised-button color="primary" [routerLink]="'login'">login</button>
+    </div>
+    <div class="noWrapBox" *ngIf="this.session.getInfo() != null">
+      <button (click)="logout()" mat-raised-button color="primary" [routerLink]="''">logout</button>
+    </div>
     <button mat-raised-button color="primary" [routerLink]="''">dummy</button>
     <button mat-raised-button color="primary" [routerLink]="''">dummy</button>
     <button mat-raised-button color="primary" [routerLink]="''">dummy</button>
