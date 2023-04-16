@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './component/user/user.component';
 import { LoginComponent } from './component/login/login.component';
 import { AuthGuard } from './auth.guard';
+import { DirectivePageComponent } from './component/directive-page/directive-page.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,9 @@ const routes: Routes = [
       },
       {
         path: 'user', component: UserComponent
+      },
+      {
+        path: 'directive', component: DirectivePageComponent
       },
       {
         path: 'login', component: LoginComponent
