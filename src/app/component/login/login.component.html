@@ -3,11 +3,16 @@
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="container">
       <h1>로그인</h1>
-      <input formControlName="id" name="id" type='text' class='form-control' />
+      <input formControlName="id" name="id" type='text' class='form-control' required/>
       <br/>
-      <input formControlName="pw" name="pw" type='text'class='form-control' />
+      <input formControlName="pw" name="pw" type='text'class='form-control' required/>
       <br/>
-      <button class='btn btn-success' (click)='login()'>LogIn</button>
+      <input
+        type="submit"
+        value="LogIn"
+        class='btn btn-success'
+        [disabled]="!loginForm.valid"
+        />
     </div>
   </form>
 </div>

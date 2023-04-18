@@ -11,7 +11,7 @@ import { HomeComponent } from './component/home/home.component';
 import { TodoComponent } from './component/todo/todo.component';
 import { UserComponent } from './component/user/user.component';
 import { LoginComponent } from './component/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectivePageComponent } from './component/directive-page/directive-page.component';
 
 
@@ -31,7 +31,8 @@ import { DirectivePageComponent } from './component/directive-page/directive-pag
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

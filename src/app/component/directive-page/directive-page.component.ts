@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-directive-page',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./directive-page.component.scss']
 })
 export class DirectivePageComponent {
+
+  // ================================ngClass===============================
   // ngClass 단일 프로퍼티
   isSpecial: boolean = true
   canSave: boolean = true
@@ -21,6 +24,7 @@ export class DirectivePageComponent {
       special:  this.isSpecial
     };
   }
+  // ================================+++++++===============================
 
   // 초기 실행
   ngOnInit() {
