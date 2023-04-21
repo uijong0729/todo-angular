@@ -13,6 +13,7 @@ import { UserComponent } from './component/user/user.component';
 import { LoginComponent } from './component/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectivePageComponent } from './component/directive-page/directive-page.component';
+import { HighlightDirective } from './directive/highlight.directive';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { DirectivePageComponent } from './component/directive-page/directive-pag
     UserComponent,
     LoginComponent,
     DirectivePageComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
