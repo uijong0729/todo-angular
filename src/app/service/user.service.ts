@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Logger } from './logger.service';
 
 export interface User {
   id: number,
@@ -34,13 +35,15 @@ export class UserService {
   userUrl = "https://jsonplaceholder.typicode.com/users/1"
   usersUrl = "https://jsonplaceholder.typicode.com/users/"
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private log: Logger) { }
 
   getUser() :Observable<User> {
+    this.log.info("getUser");
     return this.http.get<User>(this.userUrl);
   }
 
   getUsers() :Observable<User[]> {
+    this.log.info("getUsers");
     return this.http.get<User[]>(this.usersUrl);
   }
 }
