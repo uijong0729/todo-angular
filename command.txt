@@ -1,0 +1,6 @@
+# 스프링부트
+cd .\TodoSrc\;.\gradlew bootRun;
+
+# 앵귤러
+cd .\AngularSrc\;ng serve --open;
+cd .\AngularSrc\;ng build;
