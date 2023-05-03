@@ -9,8 +9,8 @@ import com.app.todo.repository.TodoRepositoryStub;
 @Configuration
 public class BeanConfig {
     
-    @Bean
-    public TodoRepository todoRepository() {
-        return new TodoRepositoryStub();
-    }
+    // @Bean
+    // public TodoRepository todoRepository() {
+    //     return new TodoRepositoryStub();
+    // }
 }

@@ -1,6 +1,9 @@
 package com.app.todo.controller;
 
+import java.util.Optional;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.todo.Entity.Todo;
@@ -29,10 +32,14 @@ public class TodoController {
     }
 
     @GetMapping("/todo/flux")
-    public Flux<Todo> todoFlux() {
+    public Iterable<Todo> todoFlux() {
         // Flux : 0, 1 또는 다수의 데이터를 갖는 타입
-        return todoRepo.getTodos();
+        return todoRepo.findAll();
     }
 
-
+    @GetMapping("/todo/save/{id}")
+    public String saveTodo(@PathVariable Integer id) {
+        todoRepo.save(new Todo(Math.random() + "", id, "title", false));
+        return "saved";
+    }
 }

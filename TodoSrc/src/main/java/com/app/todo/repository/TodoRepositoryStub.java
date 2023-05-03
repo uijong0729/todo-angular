@@ -1,24 +1,25 @@
 package com.app.todo.repository;
 
-import org.springframework.stereotype.Repository;
-
+import java.util.Optional;
 import com.app.todo.Entity.Todo;
-
 import reactor.core.publisher.Flux;
 
-public class TodoRepositoryStub implements TodoRepository{
+public class TodoRepositoryStub {
     
-    @Override
-    public Todo getTodo(int id) {
-        return new Todo(Math.random() + "", id, "title", false);
+    public Todo save(Todo entity) {
+        return null;
     }
 
-    @Override
-    public Flux<Todo> getTodos() {
+    public Optional<Todo> findById(Integer id) {
+        Optional<Todo> todo = Optional.of(new Todo(Math.random() + "", id, "title", false));
+        return todo;
+    }
+
+    public Flux<Todo> findAll() {
         Flux<Todo> fluxData = Flux.just(
-            getTodo(1),
-            getTodo(2),
-            getTodo(3)
+            findById(1).get(),
+            findById(2).get(),
+            findById(3).get()
         );
         return fluxData;
     }
