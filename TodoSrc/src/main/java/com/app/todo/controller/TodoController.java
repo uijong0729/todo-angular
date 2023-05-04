@@ -1,5 +1,6 @@
 package com.app.todo.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.todo.Entity.Todo;
 import com.app.todo.repository.TodoRepository;
+import com.app.todo.service.TodoService;
 
 import lombok.AllArgsConstructor;
 import reactor.core.publisher.Flux;
@@ -17,7 +19,7 @@ import reactor.core.publisher.Mono;
 @RestController
 public class TodoController {
 
-    TodoRepository todoRepo;
+    TodoService todoService;
 
     @GetMapping("/hello/mono")
     public Mono<String> helloMono() {
@@ -31,15 +33,15 @@ public class TodoController {
         return Flux.just("hello flux", "apple", "orange", "banana");
     }
 
-    @GetMapping("/todo/flux")
-    public Flux<Todo> todoFlux() {
+    @GetMapping("/todo/list")
+    public List<Todo> todoFlux() {
         // Flux : 0, 1 또는 다수의 데이터를 갖는 타입
-        return todoRepo.findAll();
+        return todoService.selectAll();
     }
 
     @GetMapping("/todo/save/{id}")
     public String saveTodo(@PathVariable Integer id) {
-        todoRepo.save(new Todo(Math.random() + "", id, "title", false));
+        todoService.insertTodo(id);
         return "saved";
     }
 }

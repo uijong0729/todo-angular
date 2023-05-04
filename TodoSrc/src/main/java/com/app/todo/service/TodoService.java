@@ -1,10 +1,13 @@
 package com.app.todo.service;
 
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.app.todo.Entity.Todo;
 
-import reactor.core.publisher.Flux;
-
+@Service
 public interface TodoService {
-    
-    Flux<Todo> getRawTodos();
+    List<Todo> selectAll();
+    void insertTodo(int id);
 }
