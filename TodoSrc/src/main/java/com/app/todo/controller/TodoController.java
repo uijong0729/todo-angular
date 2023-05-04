@@ -32,7 +32,7 @@ public class TodoController {
     }
 
     @GetMapping("/todo/flux")
-    public Iterable<Todo> todoFlux() {
+    public Flux<Todo> todoFlux() {
         // Flux : 0, 1 또는 다수의 데이터를 갖는 타입
         return todoRepo.findAll();
     }

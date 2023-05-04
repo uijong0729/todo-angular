@@ -9,6 +9,7 @@ public class ViewConfig implements WebMvcConfigurer {
     
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
+        // angular 페이지
         registry.addViewController("/").setViewName("forward:/index.html");
     }
 }
