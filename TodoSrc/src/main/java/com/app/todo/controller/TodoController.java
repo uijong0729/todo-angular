@@ -1,14 +1,12 @@
 package com.app.todo.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.todo.Entity.Todo;
-import com.app.todo.repository.TodoRepository;
 import com.app.todo.service.TodoService;
 
 import lombok.AllArgsConstructor;

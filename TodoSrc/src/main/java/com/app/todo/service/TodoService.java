@@ -9,5 +9,5 @@ import com.app.todo.Entity.Todo;
 @Service
 public interface TodoService {
     List<Todo> selectAll();
-    void insertTodo(int id);
+    Todo insertTodo(int id);
 }
