@@ -6,8 +6,12 @@ import org.springframework.stereotype.Service;
 
 import com.app.todo.Entity.Todo;
 
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
 @Service
 public interface TodoService {
-    List<Todo> selectAll();
-    Todo insertTodo(int id);
+    Flux<Todo> selectAll();
+    Todo insertTodo(Todo todo);
+    Mono<Todo> selectTodoById(int id);
 }

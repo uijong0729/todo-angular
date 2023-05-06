@@ -1,9 +1,11 @@
 package com.app.todo.controller;
 
-import java.util.List;
 
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.todo.Entity.Todo;
@@ -32,14 +34,19 @@ public class TodoController {
     }
 
     @GetMapping("/todo/list")
-    public List<Todo> todoFlux() {
-        // Flux : 0, 1 또는 다수의 데이터를 갖는 타입
-        return todoService.selectAll();
+    public ResponseEntity<Flux<Todo>> todoList() {
+        return ResponseEntity.ok(todoService.selectAll());
+    }
+
+    @PutMapping(value = "/todo/save", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> saveTodo(@RequestBody Todo todo) {
+        todoService.insertTodo(todo);
+        return ResponseEntity.ok("ok");
     }
 
     @GetMapping("/todo/save/{id}")
-    public String saveTodo(@PathVariable Integer id) {
-        todoService.insertTodo(id);
-        return "saved";
+    public ResponseEntity<Mono<Todo>> getTodo(@PathVariable Integer id) {
+        var result = todoService.selectTodoById(id);
+        return ResponseEntity.ok(result);
     }
 }
