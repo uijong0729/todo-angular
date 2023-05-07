@@ -29,4 +29,15 @@ export class TodoService {
     this.log.info("getTodoList");
     return this.http.get<Todo[]>(this.todoListUrl);
   }
+
+  putTodo(mTitle :string, mUserId :string) :Observable<string> {
+    this.log.info("putTodo");
+    const body :Todo = {
+      title: mTitle,
+      userId: mUserId,
+      id: 0,
+      completed: false
+    }
+    return this.http.post<string>("http://localhost:8080/todo", body);
+  }
 }

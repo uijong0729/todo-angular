@@ -1,5 +1,7 @@
 package com.app.todo.Entity;
 
+import org.springframework.context.annotation.Primary;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Todo {
-    @Column(name = "user_id", length = 50, nullable = false, unique = true)
+    @Column(name = "user_id", length = 50, nullable = false, unique = false)
     String userId;
 
     @Id

@@ -4,3 +4,7 @@ cd .\TodoSrc\;.\gradlew bootRun;
 # 앵귤러
 cd .\AngularSrc\;ng serve --open;
 cd .\AngularSrc\;ng build;
+
+# 스프링 서버에 앵귤러 내장(cors회피)
+
+cd D:\code\javascript\start_angular\TodoApp\AngularSrc\;ng build;cd D:\code\javascript\start_angular\TodoApp\TodoSrc;.\gradlew bootRun;

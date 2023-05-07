@@ -4,6 +4,7 @@ package com.app.todo.controller;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,18 +34,18 @@ public class TodoController {
         return Flux.just("hello flux", "apple", "orange", "banana");
     }
 
-    @GetMapping("/todo/list")
+    @GetMapping("/todo")
     public ResponseEntity<Flux<Todo>> todoList() {
         return ResponseEntity.ok(todoService.selectAll());
     }
 
-    @PutMapping(value = "/todo/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> saveTodo(@RequestBody Todo todo) {
+    @PostMapping(value = "/todo", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> postTodo(@RequestBody Todo todo) {
         todoService.insertTodo(todo);
         return ResponseEntity.ok("ok");
     }
 
-    @GetMapping("/todo/save/{id}")
+    @GetMapping("/todo/{id}")
     public ResponseEntity<Mono<Todo>> getTodo(@PathVariable Integer id) {
         var result = todoService.selectTodoById(id);
         return ResponseEntity.ok(result);

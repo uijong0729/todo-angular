@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Logger } from 'src/app/service/logger.service';
 import { Todo, TodoService } from 'src/app/service/todo.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class TodoComponent {
   todo: Todo;
   todoList: Todo[];
 
-  constructor(private todoService :TodoService) {
+  constructor(private todoService :TodoService, private log: Logger) {
 
   }
 
@@ -22,5 +23,12 @@ export class TodoComponent {
 
   showTodoList() {
     this.todoService.getTodoList().subscribe(results => this.todoList = results)
+  }
+
+  putTodo(title: string) {
+    let result = this.todoService.putTodo(title, "user");
+    result.subscribe(item => {
+      this.log.info(item);
+    });
   }
 }
