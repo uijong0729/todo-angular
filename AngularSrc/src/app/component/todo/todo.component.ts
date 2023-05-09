@@ -18,15 +18,15 @@ export class TodoComponent {
   }
 
   showTodo() {
-    this.todoService.getTodo().subscribe(results => this.todo = results)
+    this.todoService.getTodo("0").subscribe(results => this.todo = results)
   }
 
   showTodoList() {
     this.todoService.getTodoList().subscribe(results => this.todoList = results)
   }
 
-  putTodo(title: string) {
-    let result = this.todoService.putTodo(title, "user");
+  postTodo(title: string) {
+    let result = this.todoService.postTodo(title, "user");
     result.subscribe(item => {
       this.log.info(item);
     });

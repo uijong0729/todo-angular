@@ -15,29 +15,28 @@ export interface Todo {
 })
 export class TodoService {
 
-  todoUrl = 'https://jsonplaceholder.typicode.com/todos/1';
-  todoListUrl = 'https://jsonplaceholder.typicode.com/todos';
+  baseUrl = "http://localhost:8080/";
 
   constructor(private http: HttpClient, private log: Logger) { }
 
-  getTodo() :Observable<Todo> {
+  getTodo(id :string) :Observable<Todo> {
     this.log.info("getTodo");
-    return this.http.get<Todo>(this.todoUrl);
+    return this.http.get<Todo>(`${this.baseUrl}todo/${id}`);
   }
 
   getTodoList() :Observable<Todo[]> {
     this.log.info("getTodoList");
-    return this.http.get<Todo[]>(this.todoListUrl);
+    return this.http.get<Todo[]>(`${this.baseUrl}todo`);
   }
 
-  putTodo(mTitle :string, mUserId :string) :Observable<string> {
-    this.log.info("putTodo");
+  postTodo(mTitle :string, mUserId :string) :Observable<string> {
+    this.log.info("postTodo");
     const body :Todo = {
       title: mTitle,
       userId: mUserId,
       id: 0,
       completed: false
     }
-    return this.http.post<string>("http://localhost:8080/todo", body);
+    return this.http.post<string>(`${this.baseUrl}todo`, body);
   }
 }

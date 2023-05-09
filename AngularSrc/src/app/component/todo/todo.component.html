@@ -24,7 +24,14 @@
   </mat-card>
 </div>
 
-<button (click)="putTodo(title.value)">put todo</button>
-<input #title type='text' class='form-control'/>
-
+<div>
+  <button (click)="postTodo(title.value)">put todo</button>
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>Put Todo</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <input #title type='text' class='form-control'/>
+  </mat-card-content>
+</div>
 
