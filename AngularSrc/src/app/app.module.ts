@@ -14,6 +14,7 @@ import { LoginComponent } from './component/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DirectivePageComponent } from './component/directive-page/directive-page.component';
 import { HighlightDirective } from './directive/highlight.directive';
+import { InventoryComponent } from './component/inventory/inventory.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { HighlightDirective } from './directive/highlight.directive';
     LoginComponent,
     DirectivePageComponent,
     HighlightDirective,
+    InventoryComponent
   ],
   imports: [
     BrowserModule,
