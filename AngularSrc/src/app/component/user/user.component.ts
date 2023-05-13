@@ -1,5 +1,6 @@
 import { User, UserService } from './../../service/user.service';
 import { Component } from '@angular/core';
+import { UserInfo } from '../../if/user';
 
 @Component({
   selector: 'app-user',
@@ -11,6 +12,10 @@ export class UserComponent {
 
   user :User;
   users :User[];
+  userInfo: UserInfo = {
+    userId: "",
+    password: ""
+  }
 
   constructor(private userService :UserService) {
 
@@ -27,4 +32,10 @@ export class UserComponent {
   showUser() {
     this.userService.getUser().subscribe(results => this.user = results)
   }
+
+  registUser() {
+    console.log(this.userInfo.userId);
+    console.log(this.userInfo.password);
+  }
 }
+

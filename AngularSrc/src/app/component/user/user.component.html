@@ -16,3 +16,9 @@
     </mat-card-content>
   </mat-card>
 </div>
+
+<form action="#" (ngSubmit)="registUser()">
+  <input type="text" name="userId" [(ngModel)]="userInfo.userId">
+  <input type="password" name="password" [(ngModel)]="userInfo.password">
+  <input type="submit" value="登録">
+</form>
