@@ -11,7 +11,7 @@ public class TodoRepositoryStub {
     }
 
     public Optional<Todo> findById(Integer id) {
-        Optional<Todo> todo = Optional.of(new Todo(Math.random() + "", id, "title", false));
+        Optional<Todo> todo = Optional.of(new Todo(id, "userid", "title", false));
         return todo;
     }
 

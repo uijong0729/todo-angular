@@ -15,13 +15,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Todo {
-    @Column(name = "user_id", length = 50, nullable = false, unique = false)
-    String userId;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
     
+    @Column(name = "user_id", length = 50, nullable = false, unique = false)
+    String userId;
+
     @Column(name = "title")
     String title;
     
