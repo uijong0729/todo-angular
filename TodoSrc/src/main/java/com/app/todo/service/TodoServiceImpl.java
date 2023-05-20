@@ -1,18 +1,14 @@
 package com.app.todo.service;
 
-import java.util.*;
-
 import org.springframework.stereotype.Component;
 
 import com.app.todo.Entity.Todo;
 import com.app.todo.repository.TodoRepository;
 
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@Slf4j
 @Component
 @AllArgsConstructor
 public class TodoServiceImpl implements TodoService{
@@ -27,13 +23,13 @@ public class TodoServiceImpl implements TodoService{
     }
 
     @Override
-    public Todo insertTodo(Todo todo) {
+    public Todo insert(Todo todo) {
         Todo result = todoRepo.save(todo);
         return result;
     };
 
     @Override
-    public Mono<Todo> selectTodoById(int id) {
+    public Mono<Todo> selectById(int id) {
         Mono<Todo> todos = Mono.justOrEmpty(todoRepo.findById(id));
         return todos;
     }

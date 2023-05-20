@@ -5,7 +5,6 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,13 +40,13 @@ public class TodoController {
 
     @PostMapping(value = "/todo", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> postTodo(@RequestBody Todo todo) {
-        todoService.insertTodo(todo);
+        todoService.insert(todo);
         return ResponseEntity.ok("ok");
     }
 
     @GetMapping("/todo/{id}")
     public ResponseEntity<Mono<Todo>> getTodo(@PathVariable Integer id) {
-        var result = todoService.selectTodoById(id);
+        var result = todoService.selectById(id);
         return ResponseEntity.ok(result);
     }
 }

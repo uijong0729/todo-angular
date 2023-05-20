@@ -2,6 +2,7 @@ package com.app.todo.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -29,5 +30,10 @@ public class AppUser {
     
     @NotBlank
     @Column(name = "authority", length = 20)
-    private String authority;
+    @Enumerated
+    private Authority authority;
+
+    enum Authority {
+        ADMIN, USER
+    }
 }
