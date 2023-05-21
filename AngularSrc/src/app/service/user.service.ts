@@ -46,4 +46,8 @@ export class UserService {
     this.log.info("getUsers");
     return this.http.get<User[]>(this.usersUrl);
   }
+
+  addUser() {
+    // userId, username, password, authority(ADMIN, USER)
+  }
 }
