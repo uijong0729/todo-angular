@@ -1,4 +1,4 @@
-<button (click)="showUser()">show user</button>
+<!-- <button (click)="showUser()">show user</button>
 <p>
   {{user?.name}}
 </p>
@@ -15,8 +15,11 @@
         <p>{{item?.website}}</p>
     </mat-card-content>
   </mat-card>
+</div> -->
+<div>
+  <h1>유저 등록 페이지</h1>
+  <span>{{AuthMsg}}</span>
 </div>
-
 <form action="#" (ngSubmit)="registUser()">
   <input type="text" name="userId" [(ngModel)]="userInfo.userId">
   <input type="password" name="password" [(ngModel)]="userInfo.password">

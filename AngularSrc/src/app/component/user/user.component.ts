@@ -1,5 +1,5 @@
 import { User, UserService } from './../../service/user.service';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UserInfo } from '../../if/user';
 
 @Component({
@@ -16,6 +16,8 @@ export class UserComponent {
     userId: "",
     password: ""
   }
+
+  @Input() AuthMsg :string = "현재 권한이 없습니다"
 
   constructor(private userService :UserService) {
 
