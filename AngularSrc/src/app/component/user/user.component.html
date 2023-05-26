@@ -21,7 +21,13 @@
   <span>{{AuthMsg}}</span>
 </div>
 <form action="#" (ngSubmit)="registUser()">
-  <input type="text" name="userId" [(ngModel)]="userInfo.userId">
-  <input type="password" name="password" [(ngModel)]="userInfo.password">
-  <input type="submit" value="登録">
+  <div>
+    <label for="userId">ID</label>
+    <input id="userId" type="text" name="userId" [(ngModel)]="userInfo.userId">
+  </div>
+  <div>
+    <label for="password">PASSWORD</label>
+    <input id="password" type="password" name="password" [(ngModel)]="userInfo.password">
+  </div>
+  <button mat-raised-button color="primary" type="submit">登録</button>
 </form>
