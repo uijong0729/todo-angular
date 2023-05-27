@@ -17,17 +17,34 @@
   </mat-card>
 </div> -->
 <div>
-  <h1>유저 등록 페이지</h1>
-  <span>{{AuthMsg}}</span>
+  <mat-card>
+    <mat-card-title>유저 등록 페이지</mat-card-title>
+    <mat-card-subtitle>{{AuthMsg}}</mat-card-subtitle>
+    <mat-card-content>
+      <form action="#" (ngSubmit)="registUser()">
+        <div>
+          <mat-form-field>
+            <mat-label for="userId">ID</mat-label>
+            <input required matInput id="userId" type="text" name="userId" [(ngModel)]="userInfo.userId">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label for="password">PASSWORD</mat-label>
+            <input required matInput id="password" type="password" name="password" [(ngModel)]="userInfo.password">
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <mat-label for="auth">authority</mat-label>
+            <mat-select required>
+              <mat-option value="user">user</mat-option>
+              <mat-option value="admin">admin</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" type="submit">登録</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
-<form action="#" (ngSubmit)="registUser()">
-  <div>
-    <label for="userId">ID</label>
-    <input id="userId" type="text" name="userId" [(ngModel)]="userInfo.userId">
-  </div>
-  <div>
-    <label for="password">PASSWORD</label>
-    <input id="password" type="password" name="password" [(ngModel)]="userInfo.password">
-  </div>
-  <button mat-raised-button color="primary" type="submit">登録</button>
-</form>
