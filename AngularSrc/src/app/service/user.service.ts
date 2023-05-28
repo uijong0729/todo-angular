@@ -1,3 +1,4 @@
+import { UserInfo } from './../if/user';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -34,6 +35,7 @@ export class UserService {
 
   userUrl = "https://jsonplaceholder.typicode.com/users/1"
   usersUrl = "https://jsonplaceholder.typicode.com/users/"
+  addUserUrl = "https://localhost:8080/user/add"
 
   constructor(private http: HttpClient, private log: Logger) { }
 
@@ -47,7 +49,14 @@ export class UserService {
     return this.http.get<User[]>(this.usersUrl);
   }
 
-  addUser() {
+  addUser(user :UserInfo) {
     // userId, username, password, authority(ADMIN, USER)
+    this.log.info("addUser")
+    this.http.post(this.addUserUrl, {
+      userId: user.userId,
+      username: "",
+      password: user.password,
+      authority: user.authority
+    });
   }
 }

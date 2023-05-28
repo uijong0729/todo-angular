@@ -37,9 +37,9 @@
         <div>
           <mat-form-field>
             <mat-label for="auth">authority</mat-label>
-            <mat-select required>
-              <mat-option value="user">user</mat-option>
-              <mat-option value="admin">admin</mat-option>
+            <mat-select #auth (valueChange)="onSelected(auth.value)" required>
+              <mat-option default value="USER">user</mat-option>
+              <mat-option value="ADMIN">admin</mat-option>
             </mat-select>
           </mat-form-field>
         </div>

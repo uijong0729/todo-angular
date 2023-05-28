@@ -14,7 +14,8 @@ export class UserComponent {
   users :User[];
   userInfo: UserInfo = {
     userId: "",
-    password: ""
+    password: "",
+    authority: ""
   }
 
   @Input() AuthMsg :string = "현재 권한이 없습니다"
@@ -38,6 +39,13 @@ export class UserComponent {
   registUser() {
     console.log(this.userInfo.userId);
     console.log(this.userInfo.password);
+    console.log(this.userInfo.authority);
+    this.userService.addUser(this.userInfo);
+  }
+
+  onSelected(value :string) {
+    console.log(value);
+    this.userInfo.authority = value;
   }
 }
 

@@ -26,8 +26,8 @@ public class UserController {
     }
 
     @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> postUser(@RequestBody AppUser todo) {
-        service.insert(todo);
+    public ResponseEntity<String> postUser(@RequestBody AppUser user) {
+        service.insert(user);
         return ResponseEntity.ok("ok");
     }
 }
