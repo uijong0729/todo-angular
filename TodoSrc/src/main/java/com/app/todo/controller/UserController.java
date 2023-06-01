@@ -12,7 +12,9 @@ import com.app.todo.Entity.AppUser;
 import com.app.todo.service.AppUserService;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 @AllArgsConstructor
 @RestController
 @RequestMapping("/user")
@@ -26,8 +28,9 @@ public class UserController {
     }
 
     @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> postUser(@RequestBody AppUser user) {
+    public ResponseEntity<AppUser> postUser(@RequestBody AppUser user) {
+        log.info(user.toString());
         service.insert(user);
-        return ResponseEntity.ok("ok");
+        return ResponseEntity.ok(user);
     }
 }

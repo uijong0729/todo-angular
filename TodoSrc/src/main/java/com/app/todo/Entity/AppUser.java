@@ -8,11 +8,13 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @Entity(name = "app_user")
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class AppUser {
 
     @Id
@@ -28,10 +30,9 @@ public class AppUser {
     @Column(name = "password", length = 120)
     private String password;
     
-    @NotBlank
     @Column(name = "authority", length = 20)
     @Enumerated
-    private Authority authority;
+    private Authority authority = Authority.USER;
 
     enum Authority {
         ADMIN, USER

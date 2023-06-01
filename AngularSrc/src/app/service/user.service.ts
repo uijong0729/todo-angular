@@ -35,7 +35,7 @@ export class UserService {
 
   userUrl = "https://jsonplaceholder.typicode.com/users/1"
   usersUrl = "https://jsonplaceholder.typicode.com/users/"
-  addUserUrl = "https://localhost:8080/user/add"
+  addUserUrl = "http://localhost:8080/user/add"
 
   constructor(private http: HttpClient, private log: Logger) { }
 
@@ -54,9 +54,11 @@ export class UserService {
     this.log.info("addUser")
     this.http.post(this.addUserUrl, {
       userId: user.userId,
-      username: "",
+      username: "name",
       password: user.password,
       authority: user.authority
+    }).subscribe(item => {
+      this.log.info(item);
     });
   }
 }
