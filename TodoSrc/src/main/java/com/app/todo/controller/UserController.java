@@ -17,7 +17,7 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @AllArgsConstructor
 @RestController
-@RequestMapping("/user")
+@RequestMapping(value = "/user", consumes = MediaType.APPLICATION_JSON_VALUE)
 public class UserController {
 
     AppUserService service;
@@ -27,7 +27,17 @@ public class UserController {
         return ResponseEntity.ok("ok");
     }
 
-    @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/login")
+    public ResponseEntity<AppUser> login(@RequestBody AppUser user) {
+        return ResponseEntity.ok(user);
+    }
+
+    @PostMapping(value = "/logout")
+    public ResponseEntity<AppUser> logout(@RequestBody AppUser user) {
+        return ResponseEntity.ok(user);
+    }
+
+    @PostMapping(value = "/add")
     public ResponseEntity<AppUser> postUser(@RequestBody AppUser user) {
         log.info(user.toString());
         service.insert(user);
