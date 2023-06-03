@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.todo.Entity.AppUser;
@@ -28,13 +29,16 @@ public class UserController {
     }
 
     @PostMapping(value = "/login")
-    public ResponseEntity<AppUser> login(@RequestBody AppUser user) {
-        return ResponseEntity.ok(user);
+    public ResponseEntity<String> login(
+        @RequestBody String userId, 
+        @RequestBody String password) {
+        return ResponseEntity.ok(userId);
     }
 
     @PostMapping(value = "/logout")
-    public ResponseEntity<AppUser> logout(@RequestBody AppUser user) {
-        return ResponseEntity.ok(user);
+    public ResponseEntity<String> logout(
+        @RequestBody String userId) {
+        return ResponseEntity.ok(userId);
     }
 
     @PostMapping(value = "/add")

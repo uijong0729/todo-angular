@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<div *ngIf="session.getInfo() == null">
+<div *ngIf="session.getInfo() == null || session.getInfo() == ''">
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="container">
       <h1>로그인</h1>
@@ -16,7 +16,7 @@
     </div>
   </form>
 </div>
-<div *ngIf="session.getInfo() != null">
+<div *ngIf="session != null && session.getInfo() != null && session.getInfo() != ''">
   <div class="container">
     <p>로그아웃 하시겠습니까?</p>
     <button class='btn btn-success' (click)='logout()'>로그아웃</button>

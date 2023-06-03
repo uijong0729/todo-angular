@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Logger } from './logger.service';
+import { SessionService } from './session.service';
 
 export interface User {
   id: number,
@@ -36,8 +37,13 @@ export class UserService {
   userUrl = "https://jsonplaceholder.typicode.com/users/1"
   usersUrl = "https://jsonplaceholder.typicode.com/users/"
   addUserUrl = "http://localhost:8080/user/add"
+  logoutUrl = "http://localhost:8080/user/logout"
+  loginUrl = "http://localhost:8080/user/login"
 
-  constructor(private http: HttpClient, private log: Logger) { }
+  constructor(
+    private http: HttpClient,
+    private log: Logger,
+    private session: SessionService) { }
 
   getUser() :Observable<User> {
     this.log.info("getUser");
@@ -52,7 +58,7 @@ export class UserService {
   addUser(user :UserInfo) {
     // userId, username, password, authority(ADMIN, USER)
     this.log.info("addUser")
-    this.http.post(this.addUserUrl, {
+    this.http.post<UserInfo>(this.addUserUrl, {
       userId: user.userId,
       username: "name",
       password: user.password,
@@ -60,5 +66,19 @@ export class UserService {
     }).subscribe(item => {
       this.log.info(item);
     });
+  }
+
+  login(id :string, pw :string) {
+    this.log.info(id + "/" + pw);
+  }
+
+  logout(id :string) :void {
+    this.log.info(id);
+    this.http.post<UserInfo>(this.logoutUrl, {
+      userId: id
+    }).subscribe(item => {
+      console.log(item);
+      this.session.clear();
+    })
   }
 }

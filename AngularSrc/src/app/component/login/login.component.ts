@@ -1,3 +1,4 @@
+import { UserService } from './../../service/user.service';
 import { Component, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -17,7 +18,12 @@ export class LoginComponent {
     pw: ''
   })
 
-  constructor(public session : SessionService, private rout: Router, private formBuilder: FormBuilder) {
+  constructor(
+    public session : SessionService,
+    private rout: Router,
+    private formBuilder: FormBuilder,
+    private userService: UserService
+    ) {
 
   }
 
@@ -25,10 +31,18 @@ export class LoginComponent {
     console.log(this.loginForm.value)
     this.session.setInfo(this.loginForm.value.id);
     this.rout.navigateByUrl('todo');
+    this.userService.login(
+      this.loginForm.value.id,
+      this.loginForm.value.pw
+    );
   }
 
   logout() {
-    this.session.clear();
-  }
+    console.log(
+      this.session.getInfo()
+    );
 
+    const id :string = this.session.getInfo();
+    this.userService.logout(id);
+  }
 }
