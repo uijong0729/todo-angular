@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Logger } from './logger.service';
 import { SessionService } from './session.service';
+import { Router } from '@angular/router';
 
 export interface User {
   id: number,
@@ -41,6 +42,7 @@ export class UserService {
   loginUrl = "http://localhost:8080/user/login"
 
   constructor(
+    private rout: Router,
     private http: HttpClient,
     private log: Logger,
     private session: SessionService) { }
@@ -70,6 +72,13 @@ export class UserService {
 
   login(id :string, pw :string) {
     this.log.info(id + "/" + pw);
+    this.http.post<UserInfo>(this.loginUrl, {
+      userId: id,
+      password: pw
+    }).subscribe(item => {
+      this.session.setInfo(item.userId);
+      this.rout.navigateByUrl('todo');
+    })
   }
 
   logout(id :string) :void {

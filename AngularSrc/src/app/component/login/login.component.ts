@@ -20,7 +20,6 @@ export class LoginComponent {
 
   constructor(
     public session : SessionService,
-    private rout: Router,
     private formBuilder: FormBuilder,
     private userService: UserService
     ) {
@@ -29,8 +28,6 @@ export class LoginComponent {
 
   login() {
     console.log(this.loginForm.value)
-    this.session.setInfo(this.loginForm.value.id);
-    this.rout.navigateByUrl('todo');
     this.userService.login(
       this.loginForm.value.id,
       this.loginForm.value.pw
