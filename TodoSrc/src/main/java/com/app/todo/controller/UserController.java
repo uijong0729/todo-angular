@@ -1,6 +1,9 @@
 package com.app.todo.controller;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +17,7 @@ import com.app.todo.service.AppUserService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import reactor.core.publisher.Flux;
 
 @Log4j2
 @AllArgsConstructor
@@ -46,5 +50,12 @@ public class UserController {
         log.info(user.toString());
         service.insert(user);
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping(value = "/list")
+    public ResponseEntity<Flux<AppUser>> userList() {
+        var list = service.selectAll();
+        log.info(list.toString());
+        return ResponseEntity.ok(list);
     }
 }
