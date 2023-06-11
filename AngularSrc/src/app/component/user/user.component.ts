@@ -18,6 +18,8 @@ export class UserComponent {
     authority: ""
   }
 
+  usrList : UserInfo = null
+
   @Input() AuthMsg :string = "현재 권한이 없습니다"
 
   constructor(private userService :UserService) {
