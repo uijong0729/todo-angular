@@ -49,14 +49,14 @@
   </mat-card>
 </div>
 
-<div *ngFor="let item of usrList">
+<div>
   <mat-card>
       <mat-card-header>
           <mat-card-title>유저 목록 페이지</mat-card-title>
           <mat-card-subtitle>유저 리스트</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-content>
-          Text content
+      <mat-card-content *ngFor="let item of usrList">
+        {{item.userId}}
       </mat-card-content>
   </mat-card>
 </div>

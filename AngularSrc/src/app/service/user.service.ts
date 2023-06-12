@@ -1,5 +1,5 @@
 import { UserInfo } from './../if/user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Logger } from './logger.service';
@@ -72,13 +72,24 @@ export class UserService {
 
   login(id :string, pw :string) {
     this.log.info(id + "/" + pw);
-    this.http.post<UserInfo>(this.loginUrl, {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'my-auth-token'
+      })
+    };
+    const body: UserInfo = {
       userId: id,
-      password: pw
-    }).subscribe(item => {
-      this.session.setInfo(item.userId);
-      this.rout.navigateByUrl('todo');
-    })
+      password: pw,
+      authority: "USER"
+    }
+    this.http
+      .post<UserInfo>(this.loginUrl, body, httpOptions)
+      .subscribe(item => {
+        this.log.info(`login result ${item.userId}`)
+        this.session.setInfo(item.userId);
+        this.rout.navigateByUrl('todo');
+      })
   }
 
   logout(id :string) :void {

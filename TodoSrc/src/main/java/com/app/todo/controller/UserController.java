@@ -22,7 +22,7 @@ import reactor.core.publisher.Flux;
 @Log4j2
 @AllArgsConstructor
 @RestController
-@RequestMapping(value = "/user", consumes = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping("/user")
 public class UserController {
 
     AppUserService service;
@@ -33,10 +33,8 @@ public class UserController {
     }
 
     @PostMapping(value = "/login")
-    public ResponseEntity<String> login(
-        @RequestBody String userId, 
-        @RequestBody String password) {
-        return ResponseEntity.ok(userId);
+    public ResponseEntity<String> login(@RequestBody AppUser user) {
+        return ResponseEntity.ok(user.getUserId());
     }
 
     @PostMapping(value = "/logout")
