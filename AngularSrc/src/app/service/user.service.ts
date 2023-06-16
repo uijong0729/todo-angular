@@ -1,6 +1,6 @@
 import { UserInfo } from './../if/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Logger } from './logger.service';
 import { SessionService } from './session.service';
@@ -33,10 +33,10 @@ export interface User {
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService implements OnInit {
 
   userUrl = "https://jsonplaceholder.typicode.com/users/1"
-  usersUrl = "https://jsonplaceholder.typicode.com/users/"
+  usersUrl = "http://localhost:8080/user/list"
   addUserUrl = "http://localhost:8080/user/add"
   logoutUrl = "http://localhost:8080/user/logout"
   loginUrl = "http://localhost:8080/user/login"
@@ -52,9 +52,14 @@ export class UserService {
     return this.http.get<User>(this.userUrl);
   }
 
-  getUsers() :Observable<User[]> {
+  getUsers() :UserInfo[] {
     this.log.info("getUsers");
-    return this.http.get<User[]>(this.usersUrl);
+    let userList :UserInfo[] = null;
+    this.http.get<UserInfo[]>(this.userUrl)
+    .subscribe(users => {
+      userList = users;
+    })
+    return userList;
   }
 
   addUser(user :UserInfo) {
@@ -100,5 +105,10 @@ export class UserService {
       console.log(item);
       this.session.clear();
     })
+  }
+
+  // 초기화
+  ngOnInit() {
+    this.getUsers();
   }
 }
