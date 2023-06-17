@@ -6,29 +6,29 @@ import { Logger } from './logger.service';
 import { SessionService } from './session.service';
 import { Router } from '@angular/router';
 
-export interface User {
-  id: number,
-  name: string,
-  username: string,
-  email: string,
-  address: {
-    street: string,
-    suite: string,
-    city: string,
-    zipcode: string,
-    geo: {
-      lat: number,
-      lng: number
-    }
-  },
-  phone: string,
-  website: string,
-  company: {
-    name: string,
-    catchPhrase: string,
-    bs: string
-  }
-}
+// export interface User {
+//   id: number,
+//   name: string,
+//   username: string,
+//   email: string,
+//   address: {
+//     street: string,
+//     suite: string,
+//     city: string,
+//     zipcode: string,
+//     geo: {
+//       lat: number,
+//       lng: number
+//     }
+//   },
+//   phone: string,
+//   website: string,
+//   company: {
+//     name: string,
+//     catchPhrase: string,
+//     bs: string
+//   }
+// }
 
 @Injectable({
   providedIn: 'root'
@@ -47,10 +47,10 @@ export class UserService implements OnInit {
     private log: Logger,
     private session: SessionService) { }
 
-  getUser() :Observable<User> {
-    this.log.info("getUser");
-    return this.http.get<User>(this.userUrl);
-  }
+  // getUser() :Observable<User> {
+  //   this.log.info("getUser");
+  //   return this.http.get<User>(this.userUrl);
+  // }
 
   getUsers() :UserInfo[] {
     this.log.info("getUsers");
