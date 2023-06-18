@@ -1,4 +1,4 @@
-import { User, UserService } from './../../service/user.service';
+import { UserService } from './../../service/user.service';
 import { Component, Input } from '@angular/core';
 import { UserInfo } from '../../if/user';
 
@@ -10,16 +10,13 @@ import { UserInfo } from '../../if/user';
 })
 export class UserComponent {
 
-  user :User;
-  users :User[];
   userInfo: UserInfo = {
     userId: "",
     password: "",
     authority: ""
   }
 
-  usrList : UserInfo = null
-
+  usrList : UserInfo[] = null
   @Input() AuthMsg :string = "현재 권한이 없습니다"
 
   constructor(private userService :UserService) {
@@ -27,15 +24,9 @@ export class UserComponent {
   }
 
   // users
-  // https://jsonplaceholder.typicode.com/users
-  showUsers() {
-    this.userService.getUsers().subscribe(results => this.users = results)
-  }
-
-  // user
-  // https://jsonplaceholder.typicode.com/users/1
-  showUser() {
-    this.userService.getUser().subscribe(results => this.user = results)
+  showUsers() :UserInfo[] {
+    this.usrList = this.userService.getUsers();
+    return this.usrList;
   }
 
   registUser() {

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { User } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-directive-page',

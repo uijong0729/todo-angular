@@ -1,39 +1,15 @@
 import { UserInfo } from './../if/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Logger } from './logger.service';
 import { SessionService } from './session.service';
 import { Router } from '@angular/router';
 
-// export interface User {
-//   id: number,
-//   name: string,
-//   username: string,
-//   email: string,
-//   address: {
-//     street: string,
-//     suite: string,
-//     city: string,
-//     zipcode: string,
-//     geo: {
-//       lat: number,
-//       lng: number
-//     }
-//   },
-//   phone: string,
-//   website: string,
-//   company: {
-//     name: string,
-//     catchPhrase: string,
-//     bs: string
-//   }
-// }
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService implements OnInit {
+export class UserService {
 
   userUrl = "https://jsonplaceholder.typicode.com/users/1"
   usersUrl = "http://localhost:8080/user/list"
@@ -46,11 +22,6 @@ export class UserService implements OnInit {
     private http: HttpClient,
     private log: Logger,
     private session: SessionService) { }
-
-  // getUser() :Observable<User> {
-  //   this.log.info("getUser");
-  //   return this.http.get<User>(this.userUrl);
-  // }
 
   getUsers() :UserInfo[] {
     this.log.info("getUsers");
@@ -105,10 +76,5 @@ export class UserService implements OnInit {
       console.log(item);
       this.session.clear();
     })
-  }
-
-  // 초기화
-  ngOnInit() {
-    this.getUsers();
   }
 }
