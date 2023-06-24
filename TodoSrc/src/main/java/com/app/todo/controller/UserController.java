@@ -25,6 +25,7 @@ public class UserController {
 
     @GetMapping(value = "/")
     public ResponseEntity<String> getTest() {
+        service.insertStub();
         return ResponseEntity.ok("ok");
     }
 

@@ -34,7 +34,7 @@ public class AppUser {
     @Enumerated
     private Authority authority = Authority.USER;
 
-    enum Authority {
+    public enum Authority {
         ADMIN, USER
     }
 }

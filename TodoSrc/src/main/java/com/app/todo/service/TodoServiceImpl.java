@@ -33,4 +33,9 @@ public class TodoServiceImpl implements TodoService{
         Mono<Todo> todos = Mono.justOrEmpty(todoRepo.findById(id));
         return todos;
     }
+
+    @Override
+    public void insertStub() {
+        throw new UnsupportedOperationException("Unimplemented method 'insertStub'");
+    }
 }

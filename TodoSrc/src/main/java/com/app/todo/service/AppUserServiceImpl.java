@@ -2,6 +2,7 @@ package com.app.todo.service;
 
 import org.springframework.stereotype.Service;
 import com.app.todo.Entity.AppUser;
+import com.app.todo.Entity.AppUser.Authority;
 import com.app.todo.repository.UserRepository;
 
 import lombok.AllArgsConstructor;
@@ -13,6 +14,16 @@ import reactor.core.publisher.Mono;
 public class AppUserServiceImpl implements AppUserService  {
 
     UserRepository repo;
+
+    @Override
+    public void insertStub() {
+        var user = new AppUser();
+        user.setUserId("user");
+        user.setPassword("pass");
+        user.setUsername("null");
+        user.setAuthority(Authority.USER);
+        repo.save(user);
+    }
 
     @Override
     public AppUser insert(AppUser user) {
