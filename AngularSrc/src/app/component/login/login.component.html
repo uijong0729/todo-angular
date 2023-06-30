@@ -3,9 +3,9 @@
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <div class="container">
       <h1>로그인</h1>
-      <input formControlName="id" name="id" type='text' class='form-control' required/>
+      <input formControlName="userId" name="userId" type='text' class='form-control' required/>
       <br/>
-      <input formControlName="pw" name="pw" type='text'class='form-control' required/>
+      <input formControlName="password" name="password" type='text'class='form-control' required/>
       <br/>
       <input
         type="submit"

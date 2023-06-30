@@ -14,8 +14,8 @@ import { SessionService } from 'src/app/service/session.service';
 export class LoginComponent {
 
   loginForm = this.formBuilder.group({
-    id: '',
-    pw: ''
+    userId: '',
+    password: ''
   })
 
   constructor(
@@ -29,8 +29,8 @@ export class LoginComponent {
   login() {
     console.log(this.loginForm.value)
     this.userService.login(
-      this.loginForm.value.id,
-      this.loginForm.value.pw
+      this.loginForm.value.userId,
+      this.loginForm.value.password
     );
   }
 
